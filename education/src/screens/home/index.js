@@ -8,6 +8,7 @@ import Search from '@components/search';
 import Menu from '@components/menu';
 import Heading from '@components/heading';
 import Post from '@components/post';
+import Tabbar from '@components/tabbar';
 
 
 export default () => {
@@ -21,7 +22,7 @@ export default () => {
 
   return (
     <SafeAreaView style={styles.screen}>
-      <ScrollView>
+      <ScrollView style={styles.scroll}>
         <View style={styles.header}>
           <Header title="Home Page" subtitle={renderSubtitle} />
           <Bell />
@@ -46,14 +47,18 @@ export default () => {
           </ScrollView>
         </View>
       </ScrollView>
+      <Tabbar />
     </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
   screen: {
-    backgroundColor: '#fdfdfd',
+    backgroundColor: '#fff',
     flex: 1,
+  },
+  scroll: {
+    backgroundColor: '#f4f4f7',
   },
   header: {
     marginTop: 25,
