@@ -5,10 +5,21 @@ import AutoHeightImage from 'react-native-auto-height-image';
 const imgLove = {
   dark: require('@images/love-dark.png'),
   light: require('@images/love-light.png'),
+  red: require('@images/love-red.png'),
 };
 
 export default (props) => {
-  const {selected} = props;
+  const {selected, type} = props;
+  if (type == 'plain') {
+    return (
+      <AutoHeightImage
+        source={selected ? imgLove.red : imgLove.dark}
+        width={15}
+        height={15}
+        resizeMode="contain"
+      />
+    );
+  }
 
   return (
     <TouchableOpacity style={[styles.block, selected && styles.selected]}>

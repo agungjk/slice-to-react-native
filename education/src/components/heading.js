@@ -2,16 +2,16 @@ import React from 'react';
 import {View, Text, TouchableOpacity, StyleSheet} from 'react-native';
 
 export default (props) => {
-  const {title, subtitle} = props;
+  const {title, subtitle, action = 'More', large} = props;
 
   return (
     <View style={styles.header}>
       <View>
-        <Text style={styles.title}>{title}</Text>
+        <Text style={[styles.title, large && styles.large]}>{title}</Text>
         <Text style={styles.subtitle}>{subtitle}</Text>
       </View>
       <TouchableOpacity style={styles.action}>
-        <Text style={styles.text}>More</Text>
+        <Text style={styles.text}>{action}</Text>
       </TouchableOpacity>
     </View>
   );
@@ -26,6 +26,9 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 16,
     fontWeight: '500',
+  },
+  large: {
+    fontSize: 24,
   },
   subtitle: {
     marginTop: 5,
